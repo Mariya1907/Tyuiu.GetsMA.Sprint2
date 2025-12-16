@@ -16,10 +16,7 @@ namespace Tyuiu.GetsMA.Sprint2.Task1.V1
 
             bool[] results = logic.GetLogicResults(a, b, c, d);
 
-            Console.WriteLine("Логическая последовательность:");
-            foreach (var bResult in results)
             {
-                Console.WriteLine(bResult);
             }
 
             Console.WriteLine("Нажмите любую клавишу для выхода...");
