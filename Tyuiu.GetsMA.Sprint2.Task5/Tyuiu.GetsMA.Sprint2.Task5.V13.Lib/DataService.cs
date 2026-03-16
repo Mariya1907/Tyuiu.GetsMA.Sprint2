@@ -6,25 +6,34 @@ namespace Tyuiu.GetsMA.Sprint2.Task5.V13.Lib
     {
         public string FindDateOfNextDay(int year, int month, int day)
         {
-            // ✅ ВЫВОД ДЛЯ ОТЛАДКИ (временно)
-            Console.WriteLine($"DEBUG: year={year}, month={month}, day={day}");
+            // ✅ УБРАЛИ DEBUG и throw - ТОЛЬКО return строк!
 
             if (month < 1 || month > 12)
-                throw new ArgumentException("Неверный месяц");
+                return "Введено неверное значение";
 
             if (day < 1)
-                throw new ArgumentException("Неверный день");
+                return "Введено неверное значение";
 
-            int[] daysInMonth = { 0, 31, IsLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+            // ✅ Правильная проверка високосного года
+            int daysInFeb = IsLeapYear(year) ? 29 : 28;
+            int daysInMonth;
 
-            if (day > daysInMonth[month])
-                throw new ArgumentException("Неверный день месяца");
+            switch (month)
+            {
+                case 2: daysInMonth = daysInFeb; break;
+                case 4: case 6: case 9: case 11: daysInMonth = 30; break;
+                default: daysInMonth = 31; break;
+            }
 
+            if (day > daysInMonth)
+                return "Введено неверное значение";
+
+            // Вычисление следующей даты
             int nextDay = day + 1;
             int nextMonth = month;
             int nextYear = year;
 
-            if (nextDay > daysInMonth[month])
+            if (nextDay > daysInMonth)
             {
                 nextDay = 1;
                 nextMonth++;
@@ -35,7 +44,8 @@ namespace Tyuiu.GetsMA.Sprint2.Task5.V13.Lib
                 }
             }
 
-            return $"{nextYear}-{nextMonth:D2}-{nextDay:D2}";
+            // ✅ Формат ДД.ММ.ГГГГ для консоли
+            return $"{nextDay:D2}.{nextMonth:D2}.{nextYear}";
         }
 
         private bool IsLeapYear(int year)

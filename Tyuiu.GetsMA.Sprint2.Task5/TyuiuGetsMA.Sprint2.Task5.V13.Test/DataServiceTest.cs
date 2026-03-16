@@ -1,45 +1,23 @@
-﻿using tyuiu.cources.programming.interfaces.Sprint2;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Tyuiu.GetsMA.Sprint2.Task5.V13.Lib;
 
-namespace Tyuiu.GetsMA.Sprint2.Task5.V13.Lib
+namespace TyuiuGetsMA.Sprint2.Task5.V13.Test
 {
-    public class DataService : ISprint2Task5V13
+    [TestClass]
+    public sealed class DataServiceTest
     {
-        public string FindDateOfNextDay(int g, int m, int n)
+        [TestMethod]
+        public void ValidFindDateOfNextDay()
         {
-            if (m < 1 || m > 12)
-                return "Введено неверное значение";
+            DataService ds = new DataService();
 
-            if (n < 1)
-                return "Введено неверное значение";
-
-            int daysInMonth;
-            switch (m)
-            {
-                case 2: daysInMonth = 29; break;
-                case 4: case 6: case 9: case 11: daysInMonth = 30; break;
-                default: daysInMonth = 31; break;
-            }
-
-            if (n > daysInMonth)
-                return "Введено неверное значение";
-
-            int next_g = g;
-            int next_m = m;
-            int next_n = n + 1;
-
-            if (next_n > daysInMonth)
-            {
-                next_n = 1;
-                next_m++;
-                if (next_m > 12)
-                {
-                    next_m = 1;
-                    next_g++;
-                }
-            }
-
-            // ✅ ФОРМАТ YYYY-M-D для тестов!
-            return $"{next_g}-{next_m:D2}-{next_n:D2}";
+            // ✅ ТОЛЬКО КОРРЕКТНЫЕ ДАТЫ
+            Assert.AreEqual("29.02.2024", ds.FindDateOfNextDay(2024, 2, 28));
+            Assert.AreEqual("01.03.2024", ds.FindDateOfNextDay(2024, 2, 29));
+            Assert.AreEqual("16.06.2024", ds.FindDateOfNextDay(2024, 6, 15));
+            Assert.AreEqual("01.05.2024", ds.FindDateOfNextDay(2024, 4, 30));
+            Assert.AreEqual("01.01.2025", ds.FindDateOfNextDay(2024, 12, 31));
         }
     }
 }
+
