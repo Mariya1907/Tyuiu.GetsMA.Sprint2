@@ -5,7 +5,7 @@ namespace Tyuiu.GetsMA.Sprint2.Task5.V13
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             // ИСПОЛЬЗУЕМ DataService вместо дублирования логики!
             DataService ds = new DataService();

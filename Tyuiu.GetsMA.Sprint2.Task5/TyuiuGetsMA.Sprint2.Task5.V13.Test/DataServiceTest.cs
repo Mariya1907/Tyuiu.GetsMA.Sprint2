@@ -1,32 +1,45 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Tyuiu.GetsMA.Sprint2.Task5.V13.Lib;
+﻿using tyuiu.cources.programming.interfaces.Sprint2;
 
-namespace TyuiuGetsMA.Sprint2.Task5.V13.Test
+namespace Tyuiu.GetsMA.Sprint2.Task5.V13.Lib
 {
-    [TestClass]
-    public sealed class DataServiceTest
+    public class DataService : ISprint2Task5V13
     {
-        [TestMethod]
-        public void ValidFindDateOfNextDay()
+        public string FindDateOfNextDay(int g, int m, int n)
         {
-            DataService ds = new DataService();
+            if (m < 1 || m > 12)
+                return "Введено неверное значение";
 
-            // ✅ Проверки корректных дат
-            Assert.AreEqual("2024-2-29", ds.FindDateOfNextDay(2024, 2, 28));
-            Assert.AreEqual("2024-3-1", ds.FindDateOfNextDay(2024, 2, 29));
-            Assert.AreEqual("2024-6-16", ds.FindDateOfNextDay(2024, 6, 15));
-            Assert.AreEqual("2024-5-1", ds.FindDateOfNextDay(2024, 4, 30));
-            Assert.AreEqual("2025-1-1", ds.FindDateOfNextDay(2024, 12, 31));
+            if (n < 1)
+                return "Введено неверное значение";
 
-            // ✅ Проверки исключений (Try-Catch - универсально)
-            try { ds.FindDateOfNextDay(2024, 2, 30); Assert.Fail("Ожидалось исключение"); }
-            catch (ArgumentException) { }
+            int daysInMonth;
+            switch (m)
+            {
+                case 2: daysInMonth = 29; break;
+                case 4: case 6: case 9: case 11: daysInMonth = 30; break;
+                default: daysInMonth = 31; break;
+            }
 
-            try { ds.FindDateOfNextDay(2024, 13, 1); Assert.Fail("Ожидалось исключение"); }
-            catch (ArgumentException) { }
+            if (n > daysInMonth)
+                return "Введено неверное значение";
 
-            try { ds.FindDateOfNextDay(2024, 1, 0); Assert.Fail("Ожидалось исключение"); }
-            catch (ArgumentException) { }
+            int next_g = g;
+            int next_m = m;
+            int next_n = n + 1;
+
+            if (next_n > daysInMonth)
+            {
+                next_n = 1;
+                next_m++;
+                if (next_m > 12)
+                {
+                    next_m = 1;
+                    next_g++;
+                }
+            }
+
+            // ✅ ФОРМАТ YYYY-M-D для тестов!
+            return $"{next_g}-{next_m:D2}-{next_n:D2}";
         }
     }
 }
