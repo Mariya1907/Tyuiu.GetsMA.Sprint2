@@ -33,6 +33,6 @@ class Program
         {
             Console.WriteLine("Точка не находится в заштрихованной области");
         }
-        Console.ReadKey();
+   
     }
 }
