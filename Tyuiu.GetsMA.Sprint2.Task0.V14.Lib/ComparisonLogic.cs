@@ -1,11 +1,15 @@
 ﻿using System;
-using tyuiu.cources.programming.interfaces.Sprint2;  // ✅ Sprint2!
+using tyuiu.cources.programming.interfaces.Sprint2; 
 
 namespace Tyuiu.GetsMA.Sprint2.Task0.V14.Lib
 {
     public class ComparisonLogic : ISprint2Task0V14  // ✅ Найдётся!
     {
-        
+        public bool[] GetCompareOperations(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool[] GetComparisonResults(int x, int y)  // ✅ Правильный метод!
         {
             bool[] results = new bool[6];

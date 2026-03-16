@@ -4,9 +4,11 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
+
+	<!-- ТОЛЬКО ЭТО! -->
 	<ItemGroup>
-	  <Reference Include="Tyuiu.Cources.Programming.Interfaces.Sprint2">
-	    <HintPath>..\..\Mariya1907\Tyuiu.GetsMA.Sprint1\Tyuiu.Cources.Programming.Interfaces.Sprint1\obj\Debug\net8.0\Tyuiu.Cources.Programming.Interfaces.Sprint2.dll</HintPath>
+	  <Reference Include="tyuiu.cources.programming.interfaces">
+	    <HintPath>..\tyuiu.cources.programming.interfaces.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 </Project>
