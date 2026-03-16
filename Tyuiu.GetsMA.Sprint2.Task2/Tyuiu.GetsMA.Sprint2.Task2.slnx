@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="../tyuiu.cources.programming.interfaces.Sprint/Tyuiu.Cources.Programming.Interfaces.Sprint2.csproj" />
+  <Project Path="Tyuiu.GetsMA.Sprint2.Task2.V21.Lib/Tyuiu.GetsMA.Sprint2.Task2.V21.Lib.csproj" />
+  <Project Path="Tyuiu.GetsMA.Sprint2.Task2.V21.Test/Tyuiu.GetsMA.Sprint2.Task2.V21.Test.csproj" />
+  <Project Path="Tyuiu.GetsMA.Sprint2.Task2.V21/Tyuiu.GetsMA.Sprint2.Task2.V21.csproj" />
+</Solution>

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\tyuiu.cources.programming.interfaces.Sprint\Tyuiu.Cources.Programming.Interfaces.Sprint2.csproj" />
+    <ProjectReference Include="..\Tyuiu.GetsMA.Sprint2.Task2.V21.Lib\Tyuiu.GetsMA.Sprint2.Task2.V21.Lib.csproj" />
+  </ItemGroup>
+
+</Project>
