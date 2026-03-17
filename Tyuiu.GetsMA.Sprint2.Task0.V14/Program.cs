@@ -9,13 +9,13 @@ namespace GetsMA.Sprint2.Task0.V14
         static void Main(string[] args)
         {
             DataService ds = new DataService();
-            Console.Title = "Спринт #2 |Выполнил: Моторова Дана Дмитриевна | СМАРТб-23-1";
+            
             Console.WriteLine("****************************************************************************");
             Console.WriteLine("* Спринт #2                                                                *");
             Console.WriteLine("* Тема: Операции сравнения.                                                *");
             Console.WriteLine("* Задание #0                                                               *");
             Console.WriteLine("* Вариант #14                                                              *");
-            Console.WriteLine("* Выполнил: Моторова Дана Дмитриевна | СМАРТб-23-1                         *");
+           
             Console.WriteLine("****************************************************************************");
             Console.WriteLine("* УСЛОВИЕ:                                                                 *");
             Console.WriteLine("* Написать программу из операций сравнений                                 *");
