@@ -5,19 +5,19 @@ using Tyuiu.GetsMA.Sprint2.Task0.V14.Lib;
 namespace Tyuiu.GetsMA.Sprint2.Task0.V14.Test
 {
     [TestClass]
-    public class DataServiceTests  
+    public class DataServiceTest
     {
         [TestMethod]
-        public void TestComparisonResults()
+        public void ValidGetCompareOperations()
         {
+            DataService ds = new DataService();
             int x = 1075;
             int y = 754;
-            bool[] expected = { true, false, true, false, true, false };
+            bool[] res = new bool[6];
+            res = ds.GetCompareOperations(x, y);
+            bool[] wait = new bool[6] { true, false, true, false, true, false };
 
-            ISprint2Task0V14 sprint = new DataService();
-            bool[] actual = sprint.GetComparisonResults( x, y);
-            CollectionAssert.AreEqual(expected, actual);
+            CollectionAssert.AreEqual(wait, res);
         }
     }
-
 }
