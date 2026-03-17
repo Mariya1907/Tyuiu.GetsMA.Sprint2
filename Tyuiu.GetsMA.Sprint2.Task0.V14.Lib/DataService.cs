@@ -10,7 +10,7 @@ namespace Tyuiu.GetsMA.Sprint2.Task0.V14.Lib
             throw new NotImplementedException();
         }
 
-        public bool[] GetComparisonResults(int x, int y)  // ✅ ЕДИНСТВЕННЫЙ метод!
+        public bool[] GetComparisonResults(int x, int y)  
         {
             bool[] results = new bool[6];
             results[0] = x > y;
