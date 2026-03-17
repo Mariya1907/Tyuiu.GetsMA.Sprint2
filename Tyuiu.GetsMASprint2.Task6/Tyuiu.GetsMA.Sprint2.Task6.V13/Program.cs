@@ -31,6 +31,7 @@ class Program
         Console.WriteLine("***************************************************************************");
         Console.WriteLine(ds.FindDateOfNextDay(g, m, n));
 
-        Console.ReadKey();
+        Console.ReadLine();
+        
     }
 }

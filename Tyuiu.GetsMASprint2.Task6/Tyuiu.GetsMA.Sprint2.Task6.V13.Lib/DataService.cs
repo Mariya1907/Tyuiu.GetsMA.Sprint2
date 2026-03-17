@@ -2,7 +2,6 @@
 using tyuiu.cources.programming.interfaces.Sprint2;
 
 namespace Tyuiu.GetsMA.Sprint2.Task6.V13.Lib
-
 {
     public class DataService : ISprint2Task6V13
     {
@@ -11,8 +10,9 @@ namespace Tyuiu.GetsMA.Sprint2.Task6.V13.Lib
             int nextG = g;
             int nextM = m;
             int nextN = n + 1;
-            string date;
 
+
+            int daysInMonth;
             switch (m)
             {
                 case 1:
@@ -21,62 +21,41 @@ namespace Tyuiu.GetsMA.Sprint2.Task6.V13.Lib
                 case 7:
                 case 8:
                 case 10:
-                    if (n == 31)
-                    {
-                        nextM = m + 1;
-                        nextN = 1;
-                        date = $"0{nextN}.0{nextM}.{g}";
+                case 12:
+                    daysInMonth = 31;
+                    break;
 
-                    }
-                    else
-                    {
-                        date = $"0{nextN}.0{m}.{g}";
-                    }
-                    break;
-                case 2:
-                    if (n == 29)
-                    {
-                        nextN = 1;
-                        nextM++;
-                        date = $"0{nextN}.0{nextM}.{g}";
-                    }
-                    else
-                    {
-                        date = $"0 {nextN}.0{m}.{g}";
-                    }
-                    break;
                 case 4:
                 case 6:
                 case 9:
                 case 11:
-                    if (n == 30)
-                    {
-                        nextN = 1;
-                        nextM++;
-                        date = $"0{nextN}.0{nextM}.{g}";
-                    }
-                    else
-                    {
-                        date = $"0{nextN}.0{m}.{g}";
-                    }
+                    daysInMonth = 30;
                     break;
-                case 12:
-                    if (n == 31)
-                    {
-                        nextG++;
-                        nextM = 1;
-                        nextN = 1;
-                        date = $"0{nextN}.0{nextM}.{nextG}";
-                    }
-                    else
-                    {
-                        date = $"0{nextN}.0{m}.{g}";
-                    }
-                    break;
-                default: throw new ArgumentException($"Не верное кол-во дней в году{n}");
 
+                case 2:
+                    
+                    bool leapYear = (g % 4 == 0 && g % 100 != 0) || (g % 400 == 0);
+                    daysInMonth = leapYear ? 29 : 28;
+                    break;
+
+                default:
+                    
+                    daysInMonth = 30;  
+                    break;
             }
-            return date;
+
+            if (nextN > daysInMonth)
+            {
+                nextN = 1;
+                nextM++;
+                if (nextM > 12)
+                {
+                    nextM = 1;
+                    nextG++;
+                }
+            }
+
+            return $"{nextN:D2}.{nextM:D2}.{nextG}";
         }
     }
 }
